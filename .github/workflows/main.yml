@@ -29,8 +29,8 @@ jobs:
 
     - name: Configure CMake
       shell: bash
-      working-directory: blink
-      run: PICO_SDK_PATH=../pico-sdk cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -S . -B build
+      working-directory: ${{ github.workspace }}
+      run: PICO_SDK_PATH=pico-sdk cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -S . -B build
 
     - name: Build
       working-directory: blink
