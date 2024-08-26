@@ -21,7 +21,7 @@ jobs:
       run: git submodule update --init
 
     - name: Create Build Environment
-      working-directory: ${{ github.workspace }}
+      working-directory: ./
 
       run: pwd;ls -la
 
