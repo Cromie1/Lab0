@@ -23,19 +23,19 @@ jobs:
         path: pico-sdk
 
     - name: Checkout pico-sdk submodules
-      working-directory: ${{github.workspace}}/pico-sdk
+      working-directory: pico-sdk
       run: git submodule update --init
 
     - name: Create Build Environment
-      working-directory: ${{github.workspace}}/blink
+      working-directory: blink
       run: cmake -E make_directory build
 
     - name: Configure CMake
       shell: bash
-      working-directory: ${{github.workspace}}/blink
-      run: PICO_SDK_PATH=../pico-sdk cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -S ${{github.workspace}}/blink -B build
+      working-directory: blink
+      run: PICO_SDK_PATH=../pico-sdk cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -S . -B build
 
     - name: Build
-      working-directory: ${{github.workspace}}/blink
+      working-directory: blink
       shell: bash
       run: cmake --build build --config $BUILD_TYPE --parallel $(nproc)
