@@ -21,15 +21,15 @@ jobs:
       run: git submodule update --init
 
     - name: Create Build Environment
-      working-directory: blink
+      working-directory: ${{ github.workspace }}/blink
       run: cmake -E make_directory build
 
     - name: Configure CMake
       shell: bash
-      working-directory: blink
+      working-directory: ${{ github.workspace }}/blink
       run: PICO_SDK_PATH=../pico-sdk cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -S . -B build
 
     - name: Build
-      working-directory: blink
+      working-directory: ${{ github.workspace }}/blink
       shell: bash
       run: cmake --build build --config $BUILD_TYPE --parallel $(nproc)
