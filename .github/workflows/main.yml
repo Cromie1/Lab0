@@ -23,7 +23,7 @@ jobs:
     - name: Create Build Environment
       working-directory: ${{ github.workspace }}/blink
 
-      run: pwd;ls -la;cmake -E make_directory build
+      run: pwd;ls -la
 
     - name: Configure CMake
       shell: bash
