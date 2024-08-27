@@ -16,9 +16,6 @@ else()
     set(PICO_TOOLCHAIN_PATH ${USERHOME}/.pico-sdk/toolchain/13_2_Rel1)
 endif()
 set(picotoolVersion 2.0.0)
-cmake_policy(SET CMP0010 NEW)
-cmake_policy(SET CMP0007 NEW)
-
 include(${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
 # ====================================================================================
 set(PICO_BOARD pico_w CACHE STRING "Board type")
