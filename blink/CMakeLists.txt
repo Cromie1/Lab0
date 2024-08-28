@@ -59,7 +59,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(testing blink.c )
+add_executable(blink blink.c )
 
 pico_set_program_name(testing "blink")
 pico_set_program_version(testing "0.1")
@@ -80,3 +80,9 @@ target_include_directories(testing PRIVATE
 
 pico_add_extra_outputs(testing)
 
+target_link_libraries(blink pico_stdlib)
+if (PICO_CYW43_SUPPORTED)
+  target_link_libraries(blink pico_cyw43_arch_none)
+endif()
+
+pic_add_extra_outputs(blink)
