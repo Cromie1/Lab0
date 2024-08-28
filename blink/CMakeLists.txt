@@ -61,15 +61,15 @@ pico_sdk_init()
 
 add_executable(blink blink.c )
 
-pico_set_program_name(testing "blink")
-pico_set_program_version(testing "0.1")
+pico_set_program_name(blink "blink")
+pico_set_program_version(blink "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(testing 0)
-pico_enable_stdio_usb(testing 0)
+pico_enable_stdio_uart(blink 0)
+pico_enable_stdio_usb(blink 0)
 
 # Add the standard library to the build
-target_link_libraries(testing
+target_link_libraries(blink
         pico_stdlib)
 
 # Add the standard include files to the build
@@ -77,8 +77,6 @@ target_include_directories(testing PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
   ${CMAKE_CURRENT_LIST_DIR}/.. # for our common lwipopts or any other standard includes, if required
 )
-
-pico_add_extra_outputs(testing)
 
 target_link_libraries(blink pico_stdlib)
 if (PICO_CYW43_SUPPORTED)
