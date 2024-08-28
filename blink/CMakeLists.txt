@@ -70,7 +70,7 @@ pico_enable_stdio_usb(blink 0)
 
 # Add the standard library to the build
 target_link_libraries(blink
-        pico_stdlib)
+        pico_stdlib hardware_flash)
 
 # Add the standard include files to the build
 target_include_directories(blink PRIVATE
